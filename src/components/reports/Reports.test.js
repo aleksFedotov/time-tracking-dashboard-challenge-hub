@@ -8,10 +8,4 @@ describe('Report component testing', () => {
     const reports = screen.getAllByLabelText('report');
     expect(reports.length).toEqual(8);
   });
-
-  test('Work report renders right header', () => {
-    render(<Reports />);
-
-    const headers = screen.getAllByRole('heading', { level: 2 });
-  });
 });

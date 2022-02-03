@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import avatarImg from '../../images/image-jeremy.png';
 import DashBoardContext from '../../context/context';
@@ -10,7 +10,7 @@ const ProfileContainer = styled.div`
 const UserInfo = styled.div`
   padding: 3.4rem 2.9rem;
   background-color: var(--blue);
-  border-radius: 2rem;
+  border-radius: 1rem;
   min-height: 35.5rem;
   position: relative;
   z-index: 2;

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import DashBoardContext from './context';
 
 const DashBoardProvider = (props) => {
-  const [period, setPeriod] = useState('Daily');
+  const [period, setPeriod] = useState('Weekly');
   const changePeriod = (data) => {
     setPeriod(data);
   };
