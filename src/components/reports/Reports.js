@@ -13,11 +13,10 @@ const ReportsContainer = styled.div`
 `;
 
 const Reports = () => {
-  console.log(data);
   return (
     <ReportsContainer>
       {data.map((item) => (
-        <Report activity={item} />
+        <Report key={item.title} activity={item} />
       ))}
     </ReportsContainer>
   );

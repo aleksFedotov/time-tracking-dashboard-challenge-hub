@@ -6,6 +6,6 @@ describe('Report component testing', () => {
   test('Reports renders 8 reports', () => {
     render(<Reports />);
     const reports = screen.getAllByLabelText('report');
-    expect(reports.length).toEqual(8);
+    expect(reports.length).toEqual(6);
   });
 });
