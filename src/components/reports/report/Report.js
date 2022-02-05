@@ -78,7 +78,6 @@ const Report = (props) => {
   const DashboardCtx = useContext(DashBoardContext);
 
   const chosenPeriod = DashboardCtx.period.toLowerCase();
-  console.log(DashboardCtx, 123);
 
   const imgSrc = require(`../../../images/icon-${title
     .replace(/\s/g, '-')

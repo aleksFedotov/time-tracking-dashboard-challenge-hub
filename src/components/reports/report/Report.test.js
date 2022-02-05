@@ -1,4 +1,6 @@
-import { render, screen } from '../../../test-utils';
+// import { render, screen } from '../../../test-utils';
+
+import { render, screen } from '@testing-library/react';
 
 import DashBoardContext from '../../../context/context';
 
@@ -23,35 +25,30 @@ describe('Report component testing', () => {
     },
   };
 
-  const context = {
-    period: 'Weekly',
-    changePeriod: jest.fn(),
-  };
-
   const ReportWithProvider = () => {
-    return render(<Report activity={activity} />, { period: 'Weekly' });
+    const providerProps = {
+      period: 'Weekly',
+      changePeriod: jest.fn(),
+    };
+    render(
+      <DashBoardContext.Provider value={providerProps}>
+        <Report activity={activity} />
+      </DashBoardContext.Provider>
+    );
   };
   test('Rendering right header', () => {
     ReportWithProvider();
     const title = screen.getByRole('heading', { level: 2 });
     expect(title).toHaveTextContent(/Work/i);
   });
-  // test('Rendering right amount of current hours', () => {
-  //   render(
-  //     <DashBoardProvider>
-  //       <Report activity={activity} />
-  //     </DashBoardProvider>
-  //   );
-  //   const curHours = screen.getByText(/32hrs/i);
-  //   expect(curHours).toBeInTheDocument();
-  // });
-  // test('Rendering right amount of previous hours', () => {
-  //   render(
-  //     <DashBoardProvider>
-  //       <Report activity={activity} />
-  //     </DashBoardProvider>
-  //   );
-  //   const hours = screen.getByText(/Last Week - 36hrs/i);
-  //   expect(hours).toBeInTheDocument();
-  // });
+  test('Rendering right amount of current hours', () => {
+    ReportWithProvider();
+    const curHours = screen.getByText(/32hrs/i);
+    expect(curHours).toBeInTheDocument();
+  });
+  test('Rendering right amount of previous hours', () => {
+    ReportWithProvider();
+    const hours = screen.getByText(/Last Week - 36hrs/i);
+    expect(hours).toBeInTheDocument();
+  });
 });
