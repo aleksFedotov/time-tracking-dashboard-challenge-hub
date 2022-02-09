@@ -4,16 +4,24 @@ import avatarImg from '../../images/image-jeremy.png';
 import DashBoardContext from '../../context/context';
 
 const ProfileContainer = styled.div`
-  max-width: 25.5rem;
+  grid-area: profile;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+  border-radius: 1.5rem;
+  overflow: hidden;
 `;
 
 const UserInfo = styled.div`
-  padding: 3.4rem 2.9rem;
+  padding: 3.4rem 2.9rem 7.4rem 2.9rem;
   background-color: var(--blue);
-  border-radius: 1rem;
-  min-height: 35.5rem;
+  border-radius: 1.5rem;
+
   position: relative;
-  z-index: 2;
+
+  @media (max-width: 900px) {
+    padding: 2rem;
+  }
 `;
 
 const Avatar = styled.img`
@@ -36,12 +44,9 @@ const UserName = styled.h1`
 `;
 
 const Contorollers = styled.div`
-  padding: 6.7rem 2.9rem 3.5rem 2.9rem;
+  padding: 3rem 3rem 3.5rem 3rem;
   background-color: var(--dark-blue);
-  border-radius: 2rem;
-  min-height: 20rem;
-  margin-top: -4rem;
-  z-index: 1;
+  border-radius: 1.5rem;
 `;
 
 const ListCont = styled.ul`

@@ -42,7 +42,7 @@ body {
   font-family:  'Rubik',sans-serif;
     background-color: var(--very-dark-blue);
     padding: 2rem;
-    display: flex ;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;

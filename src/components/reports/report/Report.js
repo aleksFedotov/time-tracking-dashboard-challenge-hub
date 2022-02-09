@@ -6,16 +6,20 @@ import eclipseImg from '../../../images/icon-ellipsis.svg';
 
 const ReportContainer = styled.div`
   position: relative;
+  height: 30rem;
+  color: #fff;
+  grid-area: ${(props) => `${props.title}`};
+`;
 
-  width: 25.5rem;
-
-  height: 24.4rem;
+const Background = styled.div`
+  height: 10rem;
   background-color: ${(props) => `var(--${props.title})`};
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   background-image: url('${(props) => props.imgSrc}');
   background-position: top 0 right 20px;
   background-repeat: no-repeat;
-  color: #fff;
+
+  margin-bottom: -5.5rem;
 
   &.Work,
   &.Play,
@@ -31,17 +35,17 @@ const ReportContainer = styled.div`
 const ReportContext = styled.div`
   position: absolute;
   width: 100%;
-  height: 20rem;
+  height: 80%;
   background-color: var(--dark-blue);
-  border-radius: 1rem;
-  bottom: 0;
+  border-radius: 1.5rem;
   transition: all 0.5s ease;
   cursor: pointer;
   padding: 3rem;
+  bottom: 0;
 
   &:hover {
     background-color: #34397b;
-    height: 22rem;
+    height: 90%;
     transition: all 0.5s ease;
   }
 `;
@@ -64,13 +68,13 @@ const ContextHeader = styled.div`
 const CurrentHours = styled.h3`
   font-size: 5.6rem;
   font-weight: 300;
-  margin-top: 3.6rem;
+  margin-top: 3rem;
 `;
 
 const PreviousHours = styled.p`
   color: var(--pale-blue);
   font-size: 1.4rem;
-  margin-top: 1.4rem;
+  margin-top: 1.2rem;
 `;
 
 const Report = (props) => {
@@ -94,12 +98,8 @@ const Report = (props) => {
   }
 
   return (
-    <ReportContainer
-      title={activity}
-      imgSrc={imgSrc}
-      aria-label="report"
-      className={activity}
-    >
+    <ReportContainer title={activity} aria-label="report">
+      <Background imgSrc={imgSrc} className={activity} title={activity} />
       <ReportContext>
         <ContextHeader>
           <h2>{title}</h2>
