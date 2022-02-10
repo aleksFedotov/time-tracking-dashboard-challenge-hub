@@ -42,10 +42,16 @@ body {
   font-family:  'Rubik',sans-serif;
     background-color: var(--very-dark-blue);
     padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    
+   
+}
+
+#root{
+  min-height: calc(100vh - 4rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 `;
 

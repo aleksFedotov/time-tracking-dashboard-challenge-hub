@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
 import styled from 'styled-components';
-import DashBoardContext from '../../../context/context';
-import eclipseImg from '../../../images/icon-ellipsis.svg';
+import DashBoardContext from '../../context/context';
+import eclipseImg from '../../images/icon-ellipsis.svg';
 
 const ReportContainer = styled.div`
   position: relative;
-  height: 30rem;
+
   color: #fff;
   grid-area: ${(props) => `${props.title}`};
 `;
@@ -65,16 +65,40 @@ const ContextHeader = styled.div`
   }
 `;
 
+const HoursContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 3rem;
+
+  @media (max-width: 900px) {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+`;
+
 const CurrentHours = styled.h3`
   font-size: 5.6rem;
   font-weight: 300;
-  margin-top: 3rem;
+
+  @media (max-width: 900px) {
+    margin-top: 1rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 3.2rem;
+    margin-top: 0;
+  }
 `;
 
 const PreviousHours = styled.p`
   color: var(--pale-blue);
   font-size: 1.4rem;
-  margin-top: 1.2rem;
 `;
 
 const Report = (props) => {
@@ -83,7 +107,7 @@ const Report = (props) => {
 
   const chosenPeriod = DashboardCtx.period.toLowerCase();
 
-  const imgSrc = require(`../../../images/icon-${title
+  const imgSrc = require(`../../images/icon-${title
     .replace(/\s/g, '-')
     .toLowerCase()}.svg`);
 
@@ -107,10 +131,14 @@ const Report = (props) => {
             <img src={eclipseImg} alt="menu" />
           </div>
         </ContextHeader>
-        <CurrentHours>{`${timeframes[chosenPeriod].current}hrs`}</CurrentHours>
-        <PreviousHours>
-          {`${last} - ${timeframes[chosenPeriod].previous}hrs`}
-        </PreviousHours>
+        <HoursContainer>
+          <CurrentHours>{`${timeframes[chosenPeriod].current}hrs`}</CurrentHours>
+          <PreviousHours>
+            {`${last} - ${timeframes[chosenPeriod].previous}${
+              timeframes[chosenPeriod].previous === 1 ? 'hr' : 'hrs'
+            }`}
+          </PreviousHours>
+        </HoursContainer>
       </ReportContext>
     </ReportContainer>
   );

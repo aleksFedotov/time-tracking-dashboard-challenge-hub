@@ -2,7 +2,7 @@
 
 import { render, screen } from '@testing-library/react';
 
-import DashBoardContext from '../../../context/context';
+import DashBoardContext from '../../context/context';
 
 import Report from './Report';
 
